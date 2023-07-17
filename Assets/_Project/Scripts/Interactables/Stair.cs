@@ -10,6 +10,11 @@ public class Stair : MonoBehaviour
 
     private void Awake()
     {
+        LoadServices();
+    }
+
+    private void LoadServices()
+    {
         _signalBus = ServiceLocator.Get<SignalBus>();
     }
 

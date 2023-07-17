@@ -5,7 +5,7 @@ namespace Core.SignalBus
 {
     public class SignalBus
     {
-        private readonly Dictionary<Type, object> _localDeclarationMap = new();
+        private readonly Dictionary<Type, object> _localDeclarationMap = new Dictionary<Type, object>();
 
         public void DeclareSignal<TSignal>()
         {
@@ -53,7 +53,7 @@ namespace Core.SignalBus
 
         private class SignalDeclaration<TSignal>
         {
-            private readonly List<Action<TSignal>> _subscriptions = new();
+            private readonly List<Action<TSignal>> _subscriptions = new List<Action<TSignal>>();
 
             public void Fire(TSignal signal)
             {

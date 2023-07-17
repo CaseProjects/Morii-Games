@@ -35,8 +35,7 @@ public class Gate : MonoBehaviour
     private void OnValidate() => SetTextMeshText();
 
     private void SetTextMeshText()
-    {
-        _valueText.text = _stackType == StackType.PLUS ? $"+{_value}" : $"x{_value}";
+    {        _valueText.text = _stackType == StackType.PLUS ? $"+{_value}" : $"x{_value}";
     }
 
     private void OnTriggerEnter(Collider other)

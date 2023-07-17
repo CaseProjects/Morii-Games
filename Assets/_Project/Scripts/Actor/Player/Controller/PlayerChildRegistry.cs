@@ -4,7 +4,6 @@ using Core.SignalBus;
 using Events;
 using Helpers.Extensions;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class PlayerChildRegistry
 {
@@ -26,7 +25,7 @@ public class PlayerChildRegistry
         Initialize();
     }
 
-    public readonly List<PlayerChild> ChildList = new();
+    public readonly List<PlayerChild> ChildList = new List<PlayerChild>();
 
     private void Initialize()
     {

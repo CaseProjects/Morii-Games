@@ -13,8 +13,8 @@ public class EnemyHolder : MonoBehaviour
     private GameObservables _gameObservables;
 
     private EnemyStates _enemyStates = EnemyStates.NONE;
-    private readonly List<EnemyFacade> _enemyList = new();
-    private readonly WaitForSeconds _delayYield = new(0.2f);
+    private readonly List<EnemyFacade> _enemyList = new List<EnemyFacade>();
+    private readonly WaitForSeconds _delayYield = new WaitForSeconds(0.2f);
 
     private enum EnemyStates
     {
@@ -104,8 +104,9 @@ public class EnemyHolder : MonoBehaviour
         _enemyCount--;
         if (_enemyCount == 0)
         {
-            _gameObservables.GameState.Value = GameStates.RUNNING;
             gameObject.SetActive(false);
+            if (_gameObservables.GameState.Value == GameStates.FIGTHING)
+                _gameObservables.GameState.Value = GameStates.RUNNING;
         }
 
         UpdateCountText();

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnGameStateChanged(GameStates state)
     {
-        if (state is GameStates.FAIL or GameStates.FINISH or GameStates.STAIR)
+        if (state == GameStates.FAIL || state == GameStates.FINISH || state == GameStates.STAIR)
         {
             _canMoveHorizontal = false;
             _playerFacade.transform.ChangeLocalPosition(x: 0);
@@ -65,6 +65,9 @@ public class PlayerController : MonoBehaviour
 
         var minX = -5.5f - minChildX;
         var maxX = 5.5f - childMaxX;
-        _playerMoveHandler.ClampPositions = new Vector2((float)minX, (float)maxX);
+        if (minX != null)
+        {
+            _playerMoveHandler.ClampPositions = new Vector2((float)minX, (float)maxX);
+        }
     }
 }

@@ -30,7 +30,7 @@ public class ServiceLocator
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Clear()
     {
-        SceneManager.sceneLoaded += (_, _) => ClearData();
+        SceneManager.sceneLoaded += (scene, _) => ClearData();
         ClearData();
     }
 

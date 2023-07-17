@@ -12,8 +12,8 @@ public class PlayerStairController : MonoBehaviour
     private SignalBus _signalBus;
 
 
-    private readonly List<int> _stairGroup = new();
-    private readonly List<GameObject> _stairList = new();
+    private readonly List<int> _stairGroup = new List<int>();
+    private readonly List<GameObject> _stairList = new List<GameObject>();
 
     private bool _isBuild;
 
@@ -42,7 +42,7 @@ public class PlayerStairController : MonoBehaviour
 
     private void OnPlayerHit()
     {
-        var stair = _stairList[^1];
+        var stair = _stairList[_stairList.Count - 1];
         _stairList.Remove(stair);
         if (_stairList.Count == 0)
         {

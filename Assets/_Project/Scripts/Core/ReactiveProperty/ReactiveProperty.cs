@@ -6,7 +6,7 @@ namespace MainHandlers
     public sealed class ReactiveProperty<T>
     {
         private T _value;
-        private readonly List<Action<T>> _subscribers = new();
+        private readonly List<Action<T>> _subscribers = new List<Action<T>>();
 
         public ReactiveProperty()
         {

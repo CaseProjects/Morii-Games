@@ -2,7 +2,7 @@
 
 public class GameObservables
 {
-    public readonly ReactiveProperty<GameStates> GameState = new();
+    public readonly ReactiveProperty<GameStates> GameState = new ReactiveProperty<GameStates>();
 
     public GameObservables()
     {
